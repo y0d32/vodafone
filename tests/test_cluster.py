@@ -12,13 +12,13 @@ class TestCluster(unittest.TestCase):
 
     def testInsufficientArgs(self):
         name=""
-        network_dict = {}
+        networks = {}
         security_level=""
         #self.failUnlessRaises(ValueError, cluster.Cluster, name, security_level, network_dict)
         self.assertRaises(ValueError,cluster.Cluster, name, security_level, networks)
 
     def test_initial_value(self):
-        obj_1 = cluster.Cluster(name = "I am", network_dict = {1:"Here we go", 2:"Again"}, security_level=23)
+        obj_1 = cluster.Cluster(name = "I am", networks = {1:"Here we go", 2:"Again"}, security_level=23)
         assert obj_1.name == "I am"
         assert obj_1.networks == {1:"Here we go", 2:"Again"}
         assert obj_1.security_level == 23
